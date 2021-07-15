@@ -1,0 +1,38 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/graphhopper/graphhopper")
+            credentials {
+                username = project.properties['GITHUB_USERNAME']
+                password = project.properties['GITHUB_TOKEN']
+            }
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:4.2.2'
+    }
+
+
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/graphhopper/graphhopper")
+            credentials {
+                username = project.properties['GITHUB_USERNAME']
+                password = project.properties['GITHUB_TOKEN']
+            }
+        }
+    //    mavenLocal()
+    }
+}
+
